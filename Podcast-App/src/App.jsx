@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// Importing necessary modules and components from react-router-dom and other files
 
-function App() {
-  const [count, setCount] = useState(0)
+import { BrowserRouter , Route ,Routes, } from 'react-router-dom';
+import Login from "./components/Login";
+import Home from './components/Home';
+import SignUp from './components/SignUp';
+import React, { useEffect } from 'react';
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+// Define and export the main App component
+export default function App() {
+    // Define a state variable 'token' using React's useState hook and initialize it to false
+    const [token, setToken ] = React.useState(false);
+
+    // If the 'token' state changes, store it in the sessionStorage with the key 'token'
+    if(token){
+        sessionStorage.setItem('token', JSON.stringify(token));
+    }
+
+    // Use the useEffect hook to perform an action on component mount
+    useEffect(() => {
+        // When the component mounts, check if there is a 'token' stored in the sessionStorage
+        if(sessionStorage.getItem('token')){
+            // If there is a stored 'token', parse it and update the 'token' state
+            let data = JSON.parse(sessionStorage.getItem('token'));
+            setToken(data);
+        }
+    }, []);
+
+    // The main render function that returns the JSX to be rendered
+    return(
+        <BrowserRouter>
+            <div>
+                {/* Define routes for different pages using the Routes and Route components */}
+                <Routes>
+                    {/* When the URL path matches '/SignUp', render the SignUpPage component */}
+                    <Route path='SignUp' element={<SignUp />} />
+                    {/* When the URL path is '/', render the LoginPage component and pass the 'setToken' function as a prop */}
+                    <Route path='/' element={<Login setToken={setToken} />} />
+                    {/* If 'token' is true (i.e., user is logged in), then render the Home component when the URL path matches '/Home' */}
+                    {token? <Route path='Home' element={<Home />} /> : ''}
+                </Routes>
+            </div>
+        </BrowserRouter>
+    );
 }
-
-export default App
