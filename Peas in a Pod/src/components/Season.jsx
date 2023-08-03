@@ -12,7 +12,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogActions from '@mui/material/DialogActions';
 import Button from '@mui/material/Button';
-import FavouriteButton from './Favourite';A
+import LikeButton from './likebutton';
 
 // EpisodeDetails component
 const EpisodeDetails = ({ episode }) => {

@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import StarIcon from '@mui/icons-material/Star';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
 
-const FavouriteButton = () => {
+const LikeButton = () => {
   const [isLiked, setIsLiked] = useState(false);
 
   const handleLikeClick = () => {
@@ -13,10 +13,10 @@ const FavouriteButton = () => {
   return (
     <span style={{ position: 'relative' }}>
       <button onClick={handleLikeClick} style={{ position: 'absolute', top: 0, right: 0, border: 'none', background: 'transparent', cursor: 'pointer' }}>
-        {isLiked ? <FavoriteIcon color="primary" fontSize="large" /> : <FavoriteBorderIcon color="primary" fontSize="large" />}
+        {isLiked ? <StarIcon color="primary" fontSize="large" /> : <StarBorderIcon color="primary" fontSize="large" />}
       </button>
     </span>
   );
 };
 
-export default FavouriteButton;
+export default LikeButton;

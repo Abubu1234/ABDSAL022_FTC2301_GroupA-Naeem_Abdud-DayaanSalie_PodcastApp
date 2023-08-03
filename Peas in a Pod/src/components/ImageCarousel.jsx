@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 
-const Carousel = ({ slides }) => {
+const ImageCarousel = ({ slides }) => {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
@@ -73,4 +73,4 @@ const Carousel = ({ slides }) => {
   );
 };
 
-export default Carousel;
+export default ImageCarousel;
