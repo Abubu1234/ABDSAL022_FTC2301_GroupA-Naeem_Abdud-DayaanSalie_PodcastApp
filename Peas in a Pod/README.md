@@ -80,3 +80,28 @@ Welcome to PodHub!
 3. Install dependencies - npm install
 4. Start the development server - npm run dev
 5. Open your web browser
+
+## Dependencies
+
+- @mui/icons-material
+- @mui/material
+- @supabase/supabase-js
+- react
+- react-dom
+- react-router-dom
+
+## Dev Dependencies
+
+- @types/react
+- @types/react-dom
+- @vitejs/plugin-react
+- eslint
+- eslint-plugin-react
+- eslint-plugin-react-hooks
+- eslint-plugin-react-refresh
+- vite
+
+## Author
+
+Abdud-Dayaan Salue
+- Email: abduddayaansalie@gmail.com
